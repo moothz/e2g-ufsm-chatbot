@@ -1,0 +1,22 @@
+{
+  "name": "chatbot-backend",
+  "version": "1.0.0",
+  "description": "A Node.js based chatbot backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "jimp": "^0.22.10",
+    "jsqr": "^1.4.0",
+    "node-fetch": "^2.7.0",
+    "node-telegram-bot-api": "^0.61.0",
+    "qrcode-terminal": "^0.12.0",
+    "uuid": "^9.0.0",
+    "whatsapp-web.js": "^1.26.1-alpha.3"
+  }
+}

@@ -1,0 +1,120 @@
+[
+  {
+    "step": "register_name",
+    "message": "Please enter your name:",
+    "input": "text",
+    "next": "register_cpf",
+    "retries": 3,
+    "custom_error_message": "Entrada inválida. Por favor, tente novamente. Tentativa {currentRetries} de {maxRetries}"
+  },
+  {
+    "step": "register_cpf",
+    "message": "Please enter your CPF (numbers only):",
+    "input": "number",
+    "next": "validate_cpf",
+    "retries": 3,
+    "custom_error_message": "Entrada inválida. Por favor, tente novamente. Tentativa {currentRetries} de {maxRetries}"
+  },
+    {
+    "step": "validate_cpf",
+        "optin": {
+          "method": "validateCPF",
+          "inputs": ["register_cpf"]
+        },
+    "next": "register_complete"
+  },
+  {
+    "step": "register_complete",
+    "message": "Registration complete! Welcome, {name}!\\nYour CPF is {cpf_validation_result}.",
+    "next": "main_menu"
+  },
+  {
+    "step": "main_menu",
+		"reply": false,
+    "message": "Menu principal. Escolha:",
+    "input": "menu",
+    "options": [
+      { "text": "Show Example Text Input", "value": "example_text" },
+      { "text": "Show Example Number Input", "value": "example_number" },
+      { "text": "Show Example Image Input", "value": "example_image" },
+      { "text": "Show Example Menu", "value": "example_menu" },
+      { "text": "Show Example Location Input", "value": "example_location" },
+      { "text": "Show Example Sticker Input", "value": "example_sticker" }
+    ],
+    "next": {
+      "example_text": "example_text",
+      "example_number": "example_number",
+      "example_image": "example_image",
+      "example_menu": "example_menu",
+      "example_location": "example_location",
+      "example_sticker": "example_sticker"
+    }
+  },
+  {
+    "step": "example_text",
+    "message": "This is an example text input. Please type something:",
+    "input": "text",
+    "next": "example_text_result",
+    "retries": 3,
+    "custom_error_message": "Entrada inválida. Por favor, tente novamente. Tentativa {currentRetries} de {maxRetries}",
+        "optin": {
+          "method": "greetUser",
+          "inputs": ["example_text"]
+        }
+  },
+  {
+    "step": "example_text_result",
+    "message": "You typed: '{greeting}'",
+    "next": "main_menu"
+  },
+  {
+    "step": "example_number",
+    "message": "This is an example number input. Please enter a number:",
+    "input": "number",
+    "next": "example_number_result",
+    "retries": 3,
+    "custom_error_message": "Entrada inválida. Por favor, tente novamente. Tentativa {currentRetries} de {maxRetries}",
+        "optin": {
+          "method": "calculateSum",
+          "inputs": ["example_number"]
+        }
+  },
+    {
+    "step": "example_number_result",
+    "message": "The result of the sum is: {sum_result}",
+    "next": "main_menu"
+  },
+  {
+    "step": "example_image",
+    "message": "This is an example image input. Please send an image:",
+    "input": "image",
+    "next": "main_menu",
+    "retries": 3,
+    "custom_error_message": "Entrada inválida. Por favor, tente novamente. Tentativa {currentRetries} de {maxRetries}"
+  },
+  {
+    "step": "example_menu",
+    "message": "This is an example menu. Choose an option:",
+    "input": "menu",
+    "options": [
+      { "text": "Option 1", "value": "option1" },
+      { "text": "Option 2", "value": "option2" }
+    ],
+    "next": "main_menu",
+    "image": "media/example_menu.png"
+  },
+  {
+    "step": "example_location",
+    "message": "Please share your location:",
+    "input": "location",
+    "next": "main_menu"
+  },
+  {
+    "step": "example_sticker",
+    "message": "Please send a sticker:",
+    "input": "sticker",
+    "next": "main_menu",
+    "retries": 3,
+    "custom_error_message": "Entrada inválida. Por favor, tente novamente. Tentativa {currentRetries} de {maxRetries}"
+  }
+]
